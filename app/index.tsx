@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Text, View, ScrollView, TouchableOpacity } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { router } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { commonStyles, colors } from '../styles/commonStyles';
@@ -27,20 +27,22 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={commonStyles.container}>
       <ScrollView style={commonStyles.content} showsVerticalScrollIndicator={false}>
+        {/* Logo Section */}
+        <View style={[commonStyles.centerContent, { marginBottom: 32, marginTop: 20 }]}>
+          <Image 
+            source={require('../assets/images/6fff31e0-454c-4abb-9aa4-ffb91efce3c0.png')}
+            style={{
+              width: 200,
+              height: 120,
+              resizeMode: 'contain',
+            }}
+          />
+        </View>
+
         {/* Header with Greeting */}
         <View style={commonStyles.section}>
           <Text style={commonStyles.greeting}>{greeting},</Text>
           <Text style={commonStyles.userName}>{user.name}</Text>
-        </View>
-
-        {/* Company Branding */}
-        <View style={[commonStyles.card, { backgroundColor: colors.primary, marginBottom: 24 }]}>
-          <Text style={[commonStyles.text, { color: colors.white, textAlign: 'center', fontWeight: '600' }]}>
-            Groep Van Haute
-          </Text>
-          <Text style={[commonStyles.textSecondary, { color: colors.white, textAlign: 'center', opacity: 0.8 }]}>
-            Uw vertrouwde verzekeringsmakelaar
-          </Text>
         </View>
 
         {/* Emergency Action Button */}
